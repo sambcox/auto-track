@@ -16,6 +16,7 @@ func main() {
 	router.HandleFunc("/api/v1/dealerships/{id}", handlers.GetDealership).Methods(http.MethodGet)
 	router.HandleFunc("/api/v1/dealerships/{id}", handlers.UpdateDealership).Methods(http.MethodPut)
 	router.HandleFunc("/api/v1/dealerships/{id}", handlers.UpdateDealership).Methods(http.MethodPatch)
+	router.HandleFunc("/api/v1/dealerships/{id}", handlers.DeleteDealership).Methods(http.MethodDelete)
 
 	log.Println("Time to show off some metal!")
 	http.ListenAndServe(":4000", router)
