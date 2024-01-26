@@ -12,6 +12,7 @@ func main() {
 	router := mux.NewRouter()
 
 	router.HandleFunc("/api/v1/dealerships", handlers.GetAllDealerships).Methods(http.MethodGet)
+	router.HandleFunc("/api/v1/dealerships", handlers.AddDealership).Methods(http.MethodPost)
 
 	log.Println("Time to show off some metal!")
 	http.ListenAndServe(":4000", router)
