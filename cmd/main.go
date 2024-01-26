@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"log"
 	"net/http"
 
@@ -12,9 +11,7 @@ import (
 func main() {
 	router := mux.NewRouter()
 
-	router.HandleFunc("/dealerships", func(w http.ResponseWriter, r *http.Request) {
-		json.NewEncoder(w).Encode("Hello World")
-	})
+	router.HandleFunc("/api/v1/dealerships", handlers.GetAllDealerships).Methods(http.MethodGet)
 
 	log.Println("Time to show off some metal!")
 	http.ListenAndServe(":4000", router)
